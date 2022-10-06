@@ -2,7 +2,7 @@
  try
 {
 	// On se connecte à MySQL
-	$pdo = new PDO('mysql:host=localhost;dbname=Ecole_de_la_Reussite;charset=utf8', 'root', 'mamysy');
+	$pdo = new PDO('mysql:host=localhost;dbname=Ecole_de_la_Reussite;charset=utf8', 'UBUNTU', 'mamy');
   
 }
 catch(Exception $e)
@@ -44,24 +44,14 @@ catch(Exception $e)
         if(empty($message))
         {
              include("co.php");  
-            /* $req=$pdo->prepare("select id from eleve where login=? limit 1");
-            $req->setFetchMode(PDO::FETCH_ASSOC);
-            $req->execute(array($login));
-            $tab=$req->fetchAll();
-            if(count($tab)>0)
-                $message="<li>eleve déjà inscrit!</li>";
-            else{ */
                
             if(!empty($_POST)){ 
                  $ins=$pdo->prepare("INSERT INTO employe(passeword,nom,prenom,numero,email,adresse,profession,nationalite,date_naissance,lieu_naissance,date_soumission,sexe) 
                  VALUES(?,?,?,?,?,?,?,?,?,?,?,?)");
                 $ins->execute(array($passeword,$nom,$prenom,$numero,$email,$adresse,$profession,$nationalite,$date_naissance,$lieu_naissance,$date_soumission,$sexe));
                ; }}
-               }
-               
+               }              
 ?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>

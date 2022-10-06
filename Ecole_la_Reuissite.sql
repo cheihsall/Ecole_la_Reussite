@@ -15,5 +15,4 @@ date_naissance date NOT NULL,
 lieu_naissance varchar(80) NOT NULL,
 date_soumission date NOT NULL,
 sexe varchar(80) NOT NULL
-
 );
