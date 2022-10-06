@@ -1,22 +1,11 @@
-<!-- 
 
+<?php
     require_once('../inclusion/BD.inc.php');
     require_once('../inclusion/header.inc.php');
- -->
-<?php
- try
-{
-	// On se connecte à MySQL
-	$pdo = new PDO('mysql:host=localhost;dbname=Ecole_de_la_Reussite;charset=utf8', 'root', 'mamysy');
-}
-catch(Exception $e)
-{
-	// En cas d'erreur, on affiche un message et on arrête tout
-        die('Erreur : '.$e->getMessage());
-}
-?>
+ ?>
 
-<!-- 
+<?php
+
     if(isset($_GET['action']) && $_GET['action']== "deconnexion")
     {
         session_destroy();
@@ -49,10 +38,10 @@ catch(Exception $e)
       
       else{$contenu .= '<div class="erreur">E-mail incorrecte</div>';}
     }
+?>
 
- -->
 
-<!-- <!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
