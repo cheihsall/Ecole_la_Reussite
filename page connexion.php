@@ -29,7 +29,7 @@ if(isset($_POST['email'],$_POST['passeword']))
         if ($data["passeword"] === $pass) {
             echo "CONNECTER";
             //var_dump($data) ;die;
-            header("location: page_employer.php");
+            header("location:inscrip_employes.php");
             mail("chmouhammed2605@gmail.com", "ecole de la reussite", "bonjour, votre nom dutilisateur est \nligne2");
         } else {
             echo "mot de passe incorrect";
@@ -80,7 +80,7 @@ if(isset($_POST['email'],$_POST['passeword']))
         <label for="pseudo " >Email</label> <br>
         <input type="text" name="email" id="email" required placeholder="saisir votre mail" class="case"><br><br>
         <label for="nom ">Mot de pass</label><br>
-        <input type="password" name="Telephone" id="pass" required placeholder="Mot de pass" class="case"><br><br>
+        <input type="password" name="passeword" id="pass" required placeholder="Mot de pass" class="case"><br><br>
         <button type="submit" id="envoyer" onclick="afficher()" class="btn" >CONNEXION</button>
    
     </form>
