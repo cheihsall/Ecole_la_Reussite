@@ -3,14 +3,16 @@
     padding: 0px;
 }
 .active
-{
-    color: black;
+{width: auto;
+    height: auto;
+    
+    color: rgb(238, 16, 16);
 }
 .header{
     background-color:  #5A87BC;
     height: 100px;
     font-weight: bold;
-    font-size: 20px;
+    
     position: fixed;
     width: 100%;
     
@@ -18,8 +20,9 @@
 nav ul li{
     list-style-type: none;
     display: inline-block;
-    padding: 10px;
-    margin-top: 0px;
+    padding: 5px;
+    margin-top: 25px;
+    margin-right: 25px;
 }
 .z{
     border-radius: 60px;
@@ -28,18 +31,12 @@ nav ul li{
     height: 75px;
     margin-top: 15px;
 }
-ul li a{
-    color: white;
-    letter-spacing: 0.1rem;
-
-}
-ul li a:hover{
-    color: black;
     
-}
+
+
 .menu li{
     float: right;
-    padding: 25px;
+    padding: 15px;
 }   
 
 .B{
@@ -59,7 +56,7 @@ h1{
     text-align: justify;
 }
 img{
-    width: 462px;
+    width: 1631px;
     height: 659px; 
     border-radius: 25px;
 }
@@ -103,3 +100,23 @@ body{
 .description{
     display: flex;
 }
+
+
+    .li{
+        width: 60px;
+        height: 15px;
+    
+        box-shadow: 5px 6px 4px rgba(0, 0, 0, 0.25), 0px 4px 4px rgba(0, 0, 0, 0.25);
+        font-size: 15px;
+        color:rgb(14, 2, 2);
+        text-decoration: none;
+        border-radius: 5px;
+        background: #f5f6f8;
+        
+        cursor: pointer;
+        display: flex;
+        
+        justify-content: center;
+        margin-bottom: 10px;
+       
+    }

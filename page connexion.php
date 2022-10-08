@@ -1,13 +1,12 @@
 
 
 <?php
+session_start();
 /*LIAISON AVEC LE FORMULAIRE A LA BASE DE DONNEE*/
-$LINKER = new PDO('mysql:host=localhost;dbname=Ecole_de_la_Reussite','UBUNTU','mamy', array
-(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
-
+require_once('inclusion/BD.inc.php');
 //$result = new PDO('mysql:host=localhost;dbname=ECOLS','papa','260594', array(PDO::ATTR_ERRMODE=>PDO::ERRMODE_EXCEPTION));
 
-
+$erreur="";
 
 //var_dump($_POST['email'],$_POST['Telephone']);die;
 if(isset($_POST['email'],$_POST['passeword']))
@@ -16,28 +15,30 @@ if(isset($_POST['email'],$_POST['passeword']))
     $email = $_POST['email'];
     $pass = $_POST['passeword'];
 
-
-    
+    $_SESSION['email']= $email;
+    $_SESSION['pass']= $pass;   
 
     $sql = "SELECT * FROM employe where email='$email'";
     //$result = $LINKER->prepare($sql);
-    $result=$LINKER->query($sql);
+    $result=$pdo->query($sql);
    
     if($result->rowCount() > 0)
-    {
-        $data = $result->fetchAll()[0];
-        if ($data["passeword"] === $pass) {
-            echo "CONNECTER";
-            //var_dump($data) ;die;
-            header("location:inscrip_employes.php");
-            mail("chmouhammed2605@gmail.com", "ecole de la reussite", "bonjour, votre nom dutilisateur est \nligne2");
-        } else {
-            echo "mot de passe incorrect";
-            header("location: page connexion.php");
-        }
+        {
+             $data = $result->fetchAll()[0];
+                 if ($data["passeword"] === $pass) {
+                       echo "CONNECTER";
+                          //var_dump($data) ;die;
+                        $_SESSION['autoriser']='oui';
+                        header("location:profil.php");
+                        
+        }        else {
+                        $erreur="mauvaise login ou mt de pass";
+                        echo "mot de passe incorrect";
+                        header("location:page_accueil.php");
+                    }
     }
     else{
-        echo "EMAIL INCORRECT";
+        $erreur="mauvaise login ou mt de pass";
     }
  }
 
@@ -87,7 +88,7 @@ if(isset($_POST['email'],$_POST['passeword']))
 
 </div>
 </div>
-<script defer type="text/javascript" src="formulaire.js"></script> 
+<script defer type="text/javascript" src="inclusion/formulaire.js"></script> 
 
     </body>
 </html>
